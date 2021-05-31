@@ -26,7 +26,8 @@ SECRET_KEY = 'django-insecure-xjl^*&hq85ztp4fucs-3$af3$yi8=g#l60+-kqnpm&f^7(e6kv
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [os.getenv('PUB_IP'),]
+#ALLOWED_HOSTS = [os.getenv('PUB_IP'),]
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -76,8 +77,14 @@ WSGI_APPLICATION = 'dockerize.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        #'ENGINE': 'django.db.backends.sqlite3',
+        #'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',
+        'USER': 'postgres', 
+        'PASSWORD': 'P@ssw0rd',
+        'HOST': 'localhost',
+        'PORT': '5432'
     }
 }
 
